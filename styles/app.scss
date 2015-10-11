@@ -1,0 +1,13 @@
+@import 'variable';
+
+@font-face {
+  font-family: 'Inconsolata';
+
+  /* this can be loaded using url-loader */
+  src: url('../fonts/Inconsolata.otf');
+}
+
+body {
+ font-family: 'Inconsolata';
+ background-color: $light-gray;
+}
