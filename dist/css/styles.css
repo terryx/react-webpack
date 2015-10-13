@@ -1,8 +1,0 @@
-@font-face {
-  font-family: 'Inconsolata';
-  /* this can be loaded using url-loader */
-  src: url(buildfonts/Inconsolata.otf); }
-
-body {
-  font-family: 'Inconsolata';
-  background-color: #f5f5f5; }

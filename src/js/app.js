@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import {} from '../css/app.scss';
 
 class App extends React.Component {
+
   render() {
     return (
       <div>
@@ -13,5 +14,9 @@ class App extends React.Component {
     )
   }
 }
+
+var div = document.createElement('div');
+div.id = 'app';
+document.body.appendChild(div);
 
 ReactDOM.render(<App />, document.getElementById('app'));
