@@ -1,14 +1,5 @@
 var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin')
-var webpackConfig = {
-  entry: 'index.js',
-  output: {
-    path: 'dist',
-    filename: 'index_bundle.js'
-  },
-  plugins: [new HtmlWebpackPlugin()]
-}
-
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
@@ -65,7 +56,9 @@ module.exports = {
       minify: {
         removeComments: true,
         collapseWhitespace: true
-      }
+      },
+      template: './src/index.html',
+      title: 'React Webpack',
     })
   ],
 
