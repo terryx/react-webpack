@@ -1,10 +1,15 @@
 var path = require('path');
+var webpack = require('webpack')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
   // context: 'src',
-  entry: ['./src/js/app'],
+  entry: [
+    'webpack/hot/dev-server',
+    'webpack-dev-server/client?http://localhost:8080',
+    path.resolve('src/js/app')
+  ],
 
   output: {
     path: path.resolve('build'),
@@ -45,12 +50,17 @@ module.exports = {
       }, {
         test: /\.(eot|otf|ttf)$/,
         exclude: /node_modules/,
-        loader: 'url-loader?limit=10000&name=fonts/[name].[ext]'
+        loader: 'url-loader?limit=10000&name=fonts/[hash].[ext]'
       }
     ]
   },
 
   plugins: [
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false
+      }
+    }),
     new ExtractTextPlugin("css/styles.css"),
     new HtmlWebpackPlugin({
       minify: {
