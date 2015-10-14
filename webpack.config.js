@@ -30,9 +30,9 @@ module.exports = {
     preLoaders: [
       //javascript linter
       {
-        test: /\.(js)$/,
+        test: /\.(js|jsx|es6)$/,
         exclude: /node_modules/,
-        loader: 'eslint-loader'
+        loader: 'eslint'
       },
     ],
     loaders: [
@@ -40,7 +40,7 @@ module.exports = {
       {
         test: /\.(js|jsx|es6)$/,
         exclude: /node_modules/,
-        loader: 'babel-loader'
+        loader: 'babel'
       },
       //parse .scss into css
       {
@@ -53,11 +53,11 @@ module.exports = {
       {
         test: /\.(png|jpg)$/,
         exclude: /node_modules/,
-        loader: 'url-loader?limit=10000&name=images/[name].[ext]'
+        loader: 'url?limit=10000&name=images/[name].[ext]'
       }, {
         test: /\.(eot|otf|ttf)$/,
         exclude: /node_modules/,
-        loader: 'url-loader?limit=10000&name=fonts/[hash].[ext]'
+        loader: 'url?limit=10000&name=fonts/[hash].[ext]'
       }
     ]
   },
