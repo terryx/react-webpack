@@ -31,7 +31,7 @@ module.exports = {
     loaders: [
       //transpile es6 to es5
       {
-        test: /\.js$/,
+        test: /\.(js|jsx|es6)$/,
         exclude: /node_modules/,
         loader: 'babel-loader'
       },
@@ -74,6 +74,6 @@ module.exports = {
 
   //allow require without file extension
   resolve: {
-    extensions: ['', '.js', '.es6']
+    extensions: ['', '.js', '.es6', '.jsx']
   }
 }
