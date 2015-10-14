@@ -22,12 +22,19 @@ module.exports = {
     stats: {
       colors: true
     },
-    quiet: true,
     hot: true
   },
 
   //loaders are webpack essential tool to bundle files
   module: {
+    preLoaders: [
+      //javascript linter
+      {
+        test: /\.(js)$/,
+        exclude: /node_modules/,
+        loader: 'eslint-loader'
+      },
+    ],
     loaders: [
       //transpile es6 to es5
       {

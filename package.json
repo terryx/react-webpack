@@ -4,7 +4,7 @@
   "description": "Simplified environmental build processes with react and webpack",
   "main": "index.js",
   "scripts": {
-    "start": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --hot",
+    "start": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --hot --no-info",
     "build": "./node_modules/webpack/bin/webpack.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

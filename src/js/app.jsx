@@ -1,10 +1,10 @@
 'use strict';
-import React from 'react';
+
+import React from 'react'
 import ReactDOM from 'react-dom';
 import {} from '../css/app.scss';
 
 class App extends React.Component {
-
   render() {
     return (
       <div>
