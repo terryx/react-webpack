@@ -1,5 +1,5 @@
 {
-  "name": "react-webpack",
+  "name": "react-webpack-simple-starter",
   "version": "1.0.0",
   "description": "Simplified environmental build processes with react and webpack",
   "main": "index.js",
