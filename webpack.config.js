@@ -75,7 +75,7 @@ module.exports = {
         collapseWhitespace: true
       },
       template: './src/index.html',
-      title: 'React Webpack',
+      inject: 'body'
     })
   ],
 
