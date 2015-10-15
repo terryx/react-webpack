@@ -4,26 +4,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
-  // context: 'src',
-  entry: [
-    'webpack/hot/dev-server',
-    'webpack-dev-server/client?http://localhost:8080',
-    path.resolve('src/js/app')
-  ],
-
-  output: {
-    path: path.resolve('build'),
-    filename: 'bundle.js',
-    publicPath: '/'
-  },
-
-  devServer: {
-    contentBase: 'src',
-    stats: {
-      colors: true
-    },
-    hot: true
-  },
+  //entry, output, and development server contains in webpack.development.config.js
 
   //loaders are webpack essential tool to bundle files
   module: {
@@ -63,11 +44,6 @@ module.exports = {
   },
 
   plugins: [
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false
-      }
-    }),
     new ExtractTextPlugin("css/styles.css"),
     new HtmlWebpackPlugin({
       minify: {

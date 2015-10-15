@@ -4,8 +4,10 @@
   "description": "Simplified environmental build processes with react and webpack",
   "main": "index.js",
   "scripts": {
-    "start": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --hot",
-    "build": "./node_modules/webpack/bin/webpack.js",
+    "build": "node ./build.js",
+    "production": "./node_modules/webpack/bin/webpack.js -p --config webpack.production.config.js",
+    "staging": "./node_modules/webpack/bin/webpack.js -p --config webpack.staging.config.js",
+    "start": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --config webpack.development.config.js --hot",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -34,6 +36,7 @@
     "html-webpack-plugin": "^1.6.2",
     "node-sass": "^3.3.3",
     "sass-loader": "^3.0.0",
+    "strip-loader": "^0.1.0",
     "style-loader": "^0.12.4",
     "url-loader": "^0.5.6",
     "webpack": "^1.12.2",

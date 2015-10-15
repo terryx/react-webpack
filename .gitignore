@@ -31,3 +31,4 @@ node_modules
 
 # Build
 /build/
+/release/
