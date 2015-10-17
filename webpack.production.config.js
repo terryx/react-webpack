@@ -18,7 +18,7 @@ config.entry = [
 
 config.output = {
   path: path.resolve('release'),
-  filename: 'app.js',
+  filename: 'app.[hash].js',
   publicPath: '/'
 },
 

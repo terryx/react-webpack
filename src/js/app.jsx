@@ -2,7 +2,7 @@
 
 import React from 'react'
 import ReactDOM from 'react-dom';
-import {} from '../css/app.scss';
+import '../css/app.scss';
 
 class App extends React.Component {
   render() {

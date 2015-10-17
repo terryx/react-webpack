@@ -39,7 +39,7 @@ module.exports = {
       }, {
         test: /\.(eot|otf|ttf)$/,
         exclude: /node_modules/,
-        loader: 'url?limit=10000&name=fonts/[hash].[ext]'
+        loader: 'url?limit=10000&name=fonts/[name].[ext]'
       }
     ]
   },
@@ -50,7 +50,7 @@ module.exports = {
   })],
 
   plugins: [
-    new ExtractTextPlugin("css/styles.css"),
+    new ExtractTextPlugin("css/styles.[hash].css"),
     new HtmlWebpackPlugin({
       minify: {
         removeComments: true,
