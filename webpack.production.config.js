@@ -12,16 +12,12 @@ var stripLoader = {
 
 //for more info, look into webpack.config.js
 //this will add a new object into default settings
-config.entry = [
-  path.resolve('src/js/app')
-],
-
 config.output = {
   path: path.resolve('release'),
   filename: 'app.[hash].js',
   publicPath: '/'
 },
 
-config.module.loaders.push(stripLoader)
+config.module.loaders.push(stripLoader);
 
 module.exports = config;

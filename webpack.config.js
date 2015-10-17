@@ -6,6 +6,10 @@ var autoprefixer = require('autoprefixer');
 
 module.exports = {
   //entry, output, and development server contains in webpack.development.config.js
+  entry: {
+    app: [path.resolve('src/js/app')],
+    vendors: ['react', 'react-dom']
+  },
 
   //loaders are webpack essential tool to bundle files
   module: {
@@ -58,7 +62,8 @@ module.exports = {
       },
       template: './src/index.html',
       inject: 'body'
-    })
+    }),
+    new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.[hash].js')
   ],
 
   //allow require without file extension

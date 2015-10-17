@@ -4,11 +4,11 @@ var path = require('path');
 
 //for more info, look into webpack.config.js
 //this will add a new object into default settings
-config.entry = [
-  'webpack/hot/dev-server',
-  'webpack-dev-server/client?http://localhost:8080',
-  path.resolve('src/js/app')
-];
+// config.entry = [
+//   'webpack/hot/dev-server',
+//   'webpack-dev-server/client?http://localhost:8080',
+// ];
+config.entry.app.push('webpack/hot/dev-server', 'webpack-dev-server/client?http://localhost:8080');
 
 config.output = {
   path: path.resolve('dist'),
@@ -16,7 +16,7 @@ config.output = {
   publicPath: '/'
 };
 
-config.devtool = 'eval',
+config.devtool = 'eval';
 
 config.devServer = {
   contentBase: 'src',
