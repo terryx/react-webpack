@@ -2,6 +2,7 @@ var path = require('path');
 var webpack = require('webpack')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var autoprefixer = require('autoprefixer');
 
 module.exports = {
   //entry, output, and development server contains in webpack.development.config.js
@@ -27,7 +28,7 @@ module.exports = {
       {
         test: /\.scss$/,
         exclude: /node_modules/,
-        loader: ExtractTextPlugin.extract("style", "css!sass")
+        loader: ExtractTextPlugin.extract("style", "css!postcss!sass!")
       },
       //bundle any files within limit of 10kb into bundle.js,
       //if more than limit it will be a separate network request
@@ -42,6 +43,11 @@ module.exports = {
       }
     ]
   },
+
+  //add autoprefixer to support css of older browser version
+  postcss: [autoprefixer({
+    browsers: ['last 2 versions']
+  })],
 
   plugins: [
     new ExtractTextPlugin("css/styles.css"),

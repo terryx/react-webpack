@@ -11,3 +11,7 @@ body {
  font-family: 'Inconsolata';
  background-color: $light-gray;
 }
+
+#app {
+  display: flex; //it will auto prefix to -webkit, -ms, etc
+}
