@@ -16,7 +16,7 @@ config.output = {
   publicPath: '/'
 };
 
-config.devtool = 'eval';
+config.devtool = 'source-map';
 
 config.devServer = {
   contentBase: 'src',
