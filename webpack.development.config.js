@@ -23,7 +23,15 @@ config.devServer = {
   stats: {
     colors: true
   },
-  hot: true
+  host: '0.0.0.0',
+  hot: true,
+  //UNCOMMENT THIS if you need to call you backend server
+  // proxy: {
+  //   '/api/**': {
+  //     target: 'http://localhost:3000',
+  //     secure: false
+  //   }
+  // }
 };
 
 module.exports = config;
