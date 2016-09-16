@@ -1,17 +1,5 @@
 @import 'variable';
 
-@font-face {
-  font-family: 'Inconsolata';
-
-  /* this can be loaded using url-loader */
-  src: url('../fonts/Inconsolata.otf');
-}
-
-body {
- font-family: 'Inconsolata';
- background-color: $light-gray;
-}
-
 #app {
   display: flex; //it will auto prefix to -webkit, -ms, etc
 }

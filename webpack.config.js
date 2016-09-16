@@ -1,14 +1,19 @@
-var path = require('path');
-var webpack = require('webpack')
-var HtmlWebpackPlugin = require('html-webpack-plugin')
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
-var autoprefixer = require('autoprefixer');
+const path = require('path');
+const webpack = require('webpack')
+const autoprefixer = require('autoprefixer');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   //entry, output, and development server contains in webpack.development.config.js
   entry: {
     app: [path.resolve('src/js/app')],
-    vendors: ['react', 'react-dom']
+    vendor: ['react', 'react-dom']
+  },
+
+  output: {
+    filename: '[name].js',
+    path: path.join(__dirname, 'dist'),
+    publicPath: '/'
   },
 
   //loaders are webpack essential tool to bundle files
@@ -28,23 +33,12 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'babel'
       },
-      //parse .scss into css
-      {
-        test: /\.scss$/,
-        exclude: /node_modules/,
-        loader: ExtractTextPlugin.extract("style", "css!postcss!sass!")
-      },
-      //bundle any files within limit of 10kb into bundle.js,
       //if more than limit it will be a separate network request
       {
         test: /\.(png|jpg)$/,
         exclude: /node_modules/,
-        loader: 'url?limit=10000&name=images/[name].[ext]'
-      }, {
-        test: /\.(eot|otf|ttf)$/,
-        exclude: /node_modules/,
-        loader: 'url?limit=10000&name=fonts/[name].[ext]'
-      }
+        loader: 'url?limit=100&name=img/[name].[ext]'
+      },
     ]
   },
 
@@ -54,20 +48,18 @@ module.exports = {
   })],
 
   plugins: [
-    new ExtractTextPlugin("css/styles.[hash].css"),
-    new HtmlWebpackPlugin({
-      minify: {
-        removeComments: true,
-        collapseWhitespace: true
-      },
-      template: './src/index.html',
-      inject: 'body'
-    }),
-    new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.[hash].js')
+    new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js'),
+    new webpack.NoErrorsPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.optimize.OccurrenceOrderPlugin(true),
+    new CopyWebpackPlugin([{
+      from: './src/img',
+      to: 'img'
+    }])
   ],
 
-  //allow require without file extension
   resolve: {
+    modulesDirectories: ['node_modules', path.join(__dirname, 'src', 'js')],
     extensions: ['', '.js', '.es6', '.jsx']
   }
 }

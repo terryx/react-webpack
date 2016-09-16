@@ -1,5 +1,3 @@
-'use strict';
-
 import React from 'react'
 import ReactDOM from 'react-dom';
 import '../css/app.scss';
@@ -9,7 +7,6 @@ class App extends React.Component {
     return (
       <div>
         This is a sub heading in Inconsolata. This paragraph is in Inconsolata.
-        <img src={require('../images/webpack.png')} alt=""/>
       </div>
     )
   }
